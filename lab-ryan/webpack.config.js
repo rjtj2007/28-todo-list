@@ -2,25 +2,30 @@ const HtmlPlugin = require('html-webpack-plugin');
 
 const config = {
   mode: 'development',
-  entry: './src/app.js',
-  plugins: [
-    new HtmlPlugin({template: __dirname + '/src/index.html'})
-  ],
-
+  devtool: 'source-map',
+  entry: `${__dirname}/src/main.js`,
+  output: {
+    path: `${__dirname}/dist`,
+    filename: 'bundle-[hash].js',
+  },
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
+    rules: [{
+        test: /\.(jsx?$)/,
         loader: ["babel-loader"],
         exclude: /node_modules/
       },
-      {test: /\.(scss|css)$/, loader: [
-        "style-loader",
-        "css-loader",
-        "sass-loader"
-      ]},
-    ]
-  }
-}
+      {
+        test: /\.s?css$/,
+        loader: ["style-loader", "css-loader", "sass-loader"]
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: `${__dirname}/src/index.html`
+    })
+  ],
+};
+
 
 module.exports = config;

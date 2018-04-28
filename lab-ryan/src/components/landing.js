@@ -1,4 +1,7 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
+import noteForm from './noteForm.js'
 
 class Landing extends React.Component {
   constructor(props) {
@@ -6,11 +9,7 @@ class Landing extends React.Component {
   }
 
   render() {
-    return <div>
-        <h2>Add a Note</h2>
-        <p>This is your Note's Landing Page. </p>
-        <p>Here you can find all available notes. You can also edit, mark complete or remove existing notes by their id.</p>
-    </div>
+    return <div>Landing<NoteForm /><NoteList /></div>
   }
 }
 

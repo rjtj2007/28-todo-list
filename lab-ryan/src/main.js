@@ -1,36 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom';
-
-import Landing from './components/landing.js';
+import dashboard from './components/dashboard.js';
+import landing from './components/landing.js';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: 'Notes App'
-        }
     }
 
     render(){
-        return <Router>
-            <div>
-                <nav>
+        return <div>
+                <navbar>
+                    <h2>Notes</h2>
                     <ul>
-                        <li><Link to="/">Landing</Link></li>
-                        <li><Link to="/notes">Notes</Link></li>
+                        <li><Landing /></li>
+                        <li><Dashboard /></li>
                     </ul>
-                </nav>
-                <h1>{this.state.title}</h1>
-                <Route exact path= "/" component={Landing} />
-                <Route path="/notes" component={Notes} />
+                </navbar>
             </div>
-        </Router>
     }
 }
 
