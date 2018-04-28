@@ -9,8 +9,14 @@ class NoteList extends React.Component {
     }
 
     list() {
-        return this.list.props.notes.map((note, key) => {
-            return<NoteItem content={notes.content} title={notes.title} key={key} />
+        return this.list.props.notes.map((note, index) => {
+            return<NoteItem 
+            content={note.content} 
+            title={note.title} 
+            key={index} 
+            index={index} 
+            editNote={this.props.editNote}
+            removeNote={this.props.removeNote}/>;
         })
     }
 

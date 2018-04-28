@@ -9,21 +9,13 @@ const config = {
     filename: 'bundle-[hash].js',
   },
   module: {
-    rules: [{
-        test: /\.(jsx?$)/,
-        loader: ["babel-loader"],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.s?css$/,
-        loader: ["style-loader", "css-loader", "sass-loader"]
-      },
+    rules: [
+      {test: /\.(jsx?$)/, loader: ["babel-loader"], exclude: /node_modules/},
+      {test: /\.s?css$/, loader: ["style-loader", "css-loader", "sass-loader"]},
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: `${__dirname}/src/index.html`
-    })
+    new HtmlWebpackPlugin({template: `${__dirname}/src/index.html`})
   ],
 };
 
