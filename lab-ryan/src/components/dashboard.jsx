@@ -1,15 +1,17 @@
 import React from 'react';
-import noteList from './noteList.jsx';
-import noteForm from './noteForm.jsx';
-import noteItem from './noteList.jsx';
+import NoteList from './noteList.jsx';
+import NoteForm from './noteForm.jsx';
+import NoteItem from './noteList.jsx';
 
 
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: []
-        };
+            notes: [
+                {title: "Shopping List", content: "Buy Milk", id: 1},
+                {title: "Honey Do List", content: "Remodel Kitchen", id: 2}
+            ]};
         this.addNote = this.addNote.bind(this);
         this.removeNote = this.removeNote.bind(this);
 
@@ -28,7 +30,7 @@ class Dashboard extends React.Component {
 
     render() {
         return <div>
-            <NoteForm addNote={this.addNote} />
+            <NoteForm addNote={this.addNote} notes={this.state.notes} />
             <NoteList remove={this.removeNote} notes={this.state.notes} />
     </div>
     }
