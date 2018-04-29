@@ -16,7 +16,6 @@ class App extends React.Component {
         super(props);
         this.state = {
             title: 'Notes',
-            description: 'This is a note taking application built in React'
         }
     }
 
@@ -39,4 +38,8 @@ class App extends React.Component {
     }
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// ReactDOM.render(<App />, document.getElementById('root'));
+
+let root = document.createElement('div');
+document.body.appendChild(root);
+ReactDOM.render(<App/>, root);

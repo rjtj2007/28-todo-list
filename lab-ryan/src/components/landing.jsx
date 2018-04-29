@@ -1,16 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 class Landing extends React.Component {
   constructor(props) {
     super(props);
-    
   }
 
   render() {
     return <div>
-      <p className="page-description">This is a Note application built in React.
-     Click on the <Link to="/dashboard">dashboard</Link> to check it out.</p>
+      <p>Welcome to your Notes App.</p>
+      <p>Click on the Dashboard to view/create your notes.</p>
      </div>
   }
 }

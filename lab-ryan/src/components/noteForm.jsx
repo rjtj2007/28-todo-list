@@ -5,15 +5,24 @@ class NoteForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: uuidv4(),
             title: '',
-            content: '',
             edit: false,
-            complete: false,
-            id: ''
+            content: '',
+            complete: false
         }
-
+        this.updateTitle = this.updateTitle.bind(this);
+        this.updateContent = this.updateContent.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    updateTitle(ev) {
+        this.setState({title: ev.target.value});
+    }
+
+    updateContent(ev) {
+        this.setState({content: ev.target.value});
     }
 
     handleChange(ev) {
@@ -21,19 +30,24 @@ class NoteForm extends React.Component {
         this.setState({[ev.target.name]: change, id: uuidv4()});
         }
     
-
     handleSubmit(ev) {
         ev.preventDefault();
-        console.log(this.state);
+        let newId = uuidv4();
+        this.setState({id: newId});
         this.props.addNote(this.state);
     }
 
     render() {
-        return <form onSubmit={this.handleSubmit}>
-        <input type="text" name="title" placeholder="Title" onChange={this.handleChange}/>
-        <input type="text" name="content" placeholder="Note" onChange={this.handleChange}/>
-        <input type="submit" value="Add"/>
+        return <div>
+            <p>Add a new Note</p>
+        <form onSubmit={this.handleSubmit}>
+        <input onChange={this.updateTitle} type="text" placeholder="title" />
+        < textarea onChange={this.updateContent} />
+        {/* <input type="text" name="title" placeholder="Title" onChange={this.handleChange}/> */}
+        {/* <input type="text" name="content" placeholder="Note" onChange={this.handleChange}/> */}
+        <button type="submit">Add Note</button>
       </form>
+      </div>
     }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import NoteList from './noteList.jsx';
 import NoteForm from './noteForm.jsx';
+import NoteList from './noteList.jsx';
 import NoteItem from './noteList.jsx';
 
 
@@ -9,8 +9,8 @@ class Dashboard extends React.Component {
         super(props);
         this.state = {
             notes: [
-                {title: "Shopping List", content: "Buy Milk", id: 1},
-                {title: "Honey Do List", content: "Remodel Kitchen", id: 2}
+                // {title: "Shopping List", content: "Buy Milk", id: 1},
+                // {title: "Honey Do List", content: "Remodel Kitchen", id: 2}
             ]};
         this.addNote = this.addNote.bind(this);
         this.removeNote = this.removeNote.bind(this);
@@ -20,19 +20,25 @@ class Dashboard extends React.Component {
     addNote(note){
         this.state.note.push(note);
         this.setState({notes: this.state.notes});
+        console.log('available notes', this.state.notes);
         }
 
     removeNote(id) {
-        let note = this.state.notes.findIndex(note => note. id === id);
-        this.state.splice(note, 1);
+        let noteRemove = this.state.notes.find(note => {
+            return note. id = id;
+        });
+        let noteIndex = this.state.notes.indexOf(noteRemove);
+        this.state.notes.splice(noteIndex, 1);
         this.setState({notes: this.state.notes});
     }
+    
 
     render() {
-        return <div>
-            <NoteForm addNote={this.addNote} notes={this.state.notes} />
-            <NoteList remove={this.removeNote} notes={this.state.notes} />
-    </div>
+        return <main>
+            <p>Dashboard</p>
+            <NoteForm addNote={this.addNote} />
+            <NoteList notes={this.state.notes} removeNote={this.removeNote} />
+    </main>
     }
 }
 
