@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import {
     BrowserRouter as Router,
     Route,
@@ -15,7 +16,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'Notes',
+            title: 'Notes App',
         }
     }
 
@@ -28,7 +29,7 @@ class App extends React.Component {
                         <li><Link to = "/dashboard">Dashboard</Link></li>
                     </ul>
                 </nav>
-                <div id="main-content">
+                <div>
                     <h2>{this.state.title}</h2>
                     <Route exact path="/" component={Landing} />
                     <Route path="/dashboard" component={Dashboard} />

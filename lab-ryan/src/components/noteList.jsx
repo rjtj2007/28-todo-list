@@ -1,9 +1,4 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-} from 'react-router-dom';
 
 import NoteItem from './noteItem.jsx';
 
@@ -11,20 +6,20 @@ class NoteList extends React.Component {
     constructor(props) {
         super(props);
 
-        this.createList = this.createList.bind(this);
+        this.allNotes = this.allNotes.bind(this);
     }
 
-    createList() {
-        return this.props.notes.map(note => {
+    allNotes() {
+        return this.props.notes.map((note) => {
             console.log(note.id);
-            return<NoteItem remove={this.props.remove} key={note.id} note={note} />
+            return<NoteItem key={note.id} note={note.id} title={note.title} content={note.content} remove={this.props.remove}  />
         });
     }
 
     render() {
         return <div>
-            <h3>To Do</h3>
-            <ul id="note-list">{this.createList()}</ul>
+            <h3>Notes</h3>
+            <ul>{this.allNotes()}</ul>
         </div>
     }
 }
