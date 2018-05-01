@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
 
     removeNote(id) {
         let noteRemove = this.state.notes.find(note => {
-            return note.id = id;
+            return note.id === id; //use strict equal to compare id's
         });
         let noteIndex = this.state.notes.indexOf(noteRemove);
         this.state.notes.splice(noteIndex, 1);
