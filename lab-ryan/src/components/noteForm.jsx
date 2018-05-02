@@ -11,19 +11,10 @@ class NoteForm extends React.Component {
             editing: false,
             completed: false
         }
-        // this.updateTitle = this.updateTitle.bind(this);
-        // this.updateContent = this.updateContent.bind(this);
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    // updateTitle(event) {
-    //     this.setState({title: event.target.value});
-    // }
-
-    // updateContent(event) {
-    //     this.setState({content: event.target.value});
-    // }
 
     handleChange(event) {
         this.setState({
@@ -33,10 +24,7 @@ class NoteForm extends React.Component {
     
     handleSubmit(event) {
         event.preventDefault();
-        // let id = uuidv4();
-        // let title = event.target.title.value;
-        // let content = event.target.content.value;
-        this.props.addNote({id, title, content});
+        this.props.addNote(this.state);
     }
 
     render() {
@@ -45,19 +33,19 @@ class NoteForm extends React.Component {
                 <form 
                 onSubmit={this.handleSubmit}>
                 <input 
-                    type="text" 
+                    type='text'
                     name='title' 
-                    placeholder="Title"
+                    placeholder='Title'
                     onChange={this.handleChange} 
                 />
                 <input 
                     
-                    type="text" 
+                    type='text'
                     name='content' 
-                    placeholder="Content"
+                    placeholder='Content'
                     onChange={this.handleChange}  
                 />
-                <button type="submit" 
+                <button type='submit' 
                     value='Add Note'>Add Note</button>
             </form>
         </div>

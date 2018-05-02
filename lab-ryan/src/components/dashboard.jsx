@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
     render() {
         return <div>
             <NoteForm addNote={this.addNote}></NoteForm>
-            <NoteList removeNote={this.state.removeNotes} 
+            <NoteList removeNote={this.removeNotes} 
             notes={this.state.notes} />
         </div>
     }
