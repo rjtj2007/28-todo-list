@@ -5,47 +5,62 @@ class NoteForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: uuidv4(),
             title: '',
-            edit: false,
             content: '',
-            complete: false
+            id: '',
+            editing: false,
+            completed: false
         }
-        this.updateTitle = this.updateTitle.bind(this);
-        this.updateContent = this.updateContent.bind(this);
+        // this.updateTitle = this.updateTitle.bind(this);
+        // this.updateContent = this.updateContent.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    updateTitle(ev) {
-        this.setState({title: ev.target.value});
-    }
+    // updateTitle(event) {
+    //     this.setState({title: event.target.value});
+    // }
 
-    updateContent(ev) {
-        this.setState({content: ev.target.value});
-    }
+    // updateContent(event) {
+    //     this.setState({content: event.target.value});
+    // }
 
-    handleChange(ev) {
-        let change = ev.target.value;
-        this.setState({[ev.target.name]: change, id: uuidv4()});
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value,
+             id: uuidv4()});
         }
     
-    handleSubmit(ev) {
-        ev.preventDefault();
-        let newId = uuidv4();
-        this.setState({id: newId});
-        this.props.addNote(this.state);
+    handleSubmit(event) {
+        event.preventDefault();
+        // let id = uuidv4();
+        // let title = event.target.title.value;
+        // let content = event.target.content.value;
+        this.props.addNote({id, title, content});
     }
 
     render() {
         return <div>
             <p>Add a new Note</p>
-        <form onSubmit={this.handleSubmit}>
-        <input onChange={this.updateTitle} type="text" placeholder="title" />
-        <textarea onChange={this.updateContent} />
-        <button type="submit">Add Note</button>
-      </form>
-      </div>
+                <form 
+                onSubmit={this.handleSubmit}>
+                <input 
+                    type="text" 
+                    name='title' 
+                    placeholder="Title"
+                    onChange={this.handleChange} 
+                />
+                <input 
+                    
+                    type="text" 
+                    name='content' 
+                    placeholder="Content"
+                    onChange={this.handleChange}  
+                />
+                <button type="submit" 
+                    value='Add Note'>Add Note</button>
+            </form>
+        </div>
     }
 }
 

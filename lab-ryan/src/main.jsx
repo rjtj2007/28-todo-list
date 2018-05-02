@@ -16,7 +16,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'Notes App',
+            title: '',
+            content: ''
         }
     }
 
@@ -25,7 +26,7 @@ class App extends React.Component {
             <div>
                 <nav>
                     <ul>
-                        <li><Link to ="/">Landing</Link></li>
+                        <li><Link to ="/">Home</Link></li>
                         <li><Link to = "/dashboard">Dashboard</Link></li>
                     </ul>
                 </nav>

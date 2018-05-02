@@ -4,20 +4,23 @@ class NoteItem extends React.Component {
     constructor(props) {
         super(props);
 
-        this.delete = this.delete.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
     }
 
-    delete(event) {
-        event.preventDefault();
-        console.log('trying to remove a note', this.props.id);
-        this.props.removeNote(this.props.id);
+    handleRemove(event) {
+        console.log('delete', this.props.note.id);
+        return this.props.removeNote(this.props.note.id);
     }
 
     render() {
-        return <li>
-                {this.props.title}: {this.props.content}.
-            <button onClick={this.delete}>Remove</button>
-        </li>;
+        return <div>
+             <li>
+                <h3>{this.props.title}</h3>
+                <h4>{this.props.content}</h4>
+                <button onClick={this.handleRemove}>Remove</button>
+            </li>
+        </div>
+       
     }
 }
 

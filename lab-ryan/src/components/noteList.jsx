@@ -10,16 +10,25 @@ class NoteList extends React.Component {
     }
 
     allNotes() {
-        return this.props.notes.map((note) => {
-            console.log(note.id);
-            return<NoteItem key={note.id} note={note.id} title={note.title} content={note.content} remove={this.props.remove}  />
+
+        return this.props.notes.map((note, index) => {
+            // console.log(note);
+            // console.log(notes);
+            // console.log(index);
+            return<NoteItem 
+                removeNote={this.props.removeNote}
+                note={note} 
+                key={note.id}
+                id={note.id}
+                index={index} />
         });
     }
 
     render() {
         return <div>
-            <h3>Notes</h3>
-            <ul>{this.allNotes()}</ul>
+            <ul>
+                {this.allNotes()}
+            </ul>
         </div>
     }
 }
