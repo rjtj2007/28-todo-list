@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import NoteItem from './NoteItem.jsx';
+import NoteItem from './noteItem.jsx';
 import NoteList from './noteList.jsx';
-import NoteForm from './noteForm.jsx';
+import NoteForm from './noteCreateForm.jsx';
 
 class Dashboard extends React.Component {
     constructor(props) {
