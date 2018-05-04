@@ -3,7 +3,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const config = {
   mode: 'development',
   devtool: 'source-map',
-  entry: './src/app.jsx',
+  entry: './src/main.jsx',
   plugins: [new HtmlPlugin({template: __dirname + '/src/index.html'})],
   
   module: {
