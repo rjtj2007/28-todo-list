@@ -9,7 +9,6 @@ import {
 
 import Landing from './components/landing.jsx';
 import Dashboard from './components/dashboard.jsx';
-
 import './style/main.scss';
 
 class App extends React.Component {
@@ -26,7 +25,7 @@ class App extends React.Component {
             <div>
                 <nav>
                     <ul>
-                        <li><Link to ="/">Home</Link></li>
+                        <li><Link to ="/">Homepage</Link></li>
                         <li><Link to = "/dashboard">Dashboard</Link></li>
                     </ul>
                 </nav>

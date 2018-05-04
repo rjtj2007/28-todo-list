@@ -10,8 +10,9 @@ class NoteForm extends React.Component {
             id: '',
             editing: false,
             completed: false
-        }
         
+        }
+        console.log('NoteForm', this.state);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -33,20 +34,19 @@ class NoteForm extends React.Component {
                 <form 
                 onSubmit={this.handleSubmit}>
                 <input 
-                    type='text'
-                    name='title' 
-                    placeholder='Title'
+                    type="text"
+                    name="title" 
+                    placeholder="Title"
                     onChange={this.handleChange} 
                 />
                 <input 
-                    
-                    type='text'
-                    name='content' 
-                    placeholder='Content'
-                    onChange={this.handleChange}  
+                    type="text"
+                    name="content" 
+                    placeholder="Content"
+                    onChange={this.handleChange} 
                 />
-                <button type='submit' 
-                    value='Add Note'>Add Note</button>
+                <button type="submit" 
+                    value="Add Note">Add Note</button>
             </form>
         </div>
     }

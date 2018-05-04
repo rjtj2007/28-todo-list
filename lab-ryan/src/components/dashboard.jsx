@@ -6,11 +6,12 @@ import NoteList from './noteList.jsx';
 import NoteForm from './noteForm.jsx';
 
 class Dashboard extends React.Component {
+    console.log('notes', notes);
     constructor(props) {
         super(props);
         this.state = {
             notes: [],
-        };
+        }
 
         this.addNote = this.addNote.bind(this);
         this.removeNote = this.removeNote.bind(this);
@@ -18,17 +19,16 @@ class Dashboard extends React.Component {
 
     addNote(note){
         this.state.notes.push(note);
-        this.setState({ notes: this.state.notes });
-        }
-
-    removeNote(id) {
-        this.state.notes = this.state.notes.filter(note => {
-            return note.id !== id;
-        });
+        console.log('addNote', this.state.notes)
         this.setState({ notes: this.state.notes });
     }
-    
 
+    removeNote(index) {
+        this.state.notes.splice(index, 1);
+        this.setState({ notes: this.state.notes });
+        console.log('removeNote', this.setState({ notes: this.state.notes }));
+    }
+    
     render() {
         return <div>
             <NoteForm addNote={this.addNote}></NoteForm>

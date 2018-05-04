@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 class NoteItem extends React.Component {
     constructor(props) {
         super(props);
@@ -8,18 +10,23 @@ class NoteItem extends React.Component {
     }
 
     handleRemove(event) {
-        console.log('delete', this.props.note.id);
-        return this.props.removeNote(this.props.note.id);
+        console.log('handleRemove', this.props.removeNote);
+        return this.props.removeNote(this.props.index);
     }
 
     render() {
         return <div>
-             <li>
-                <h3>{this.props.note.title}</h3>
-                <h4>{this.props.note.content}</h4>
+            <ul>
+                <li>
+                    <Link to={"/dashboard/" + this.props.content}>
+                    {this.props.note.title}</Link>
+                </li>
+            </ul>
+            <ul>
+                <li>{this.props.note.content}</li>
+            </ul>
                 <button onClick={this.handleRemove}>Remove</button>
-            </li>
-        </div>
+           </div>
        
     }
 }
