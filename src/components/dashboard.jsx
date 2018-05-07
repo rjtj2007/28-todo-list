@@ -14,24 +14,38 @@ class Dashboard extends React.Component {
 
         this.addNote = this.addNote.bind(this);
         this.removeNote = this.removeNote.bind(this);
+        this.editNote = this.editNote.bind(this);
     }
 
     addNote(note){
-        this.state.notes.push(note);
+        let newNote = {
+            id: note.id,
+            editing: false,
+            compleated: false,
+            title: note.title,
+            content: note.content
+        }
+        this.state.notes.push(newNote);
         this.setState({ notes: this.state.notes });
-        console.log('addNote', this.state.notes);
-
     }
 
     removeNote(index) {
         this.state.notes.splice(index, 1);
         this.setState({ notes: this.state.notes });
     }
+
+    editNote() {
+        let newArray = [...this.state.notes];
+        newArray[index].title = noteInfo.title;
+        newArray[index].content = noteInfo.content;
+        this.setState({ notes: newArray });
+    }
     
     render() {
         return <div>
             <NoteForm addNote={this.addNote}></NoteForm>
-            <NoteList removeNote={this.removeNote} 
+            <NoteList removeNote={this.removeNote}
+            editNote={this.editNote}
             notes={this.state.notes} />
         </div>
     }
